@@ -4,11 +4,11 @@
   tasks :
     - name : task1 - Install mysql libraries
       ansible.builtin.pip:
-        name : {{ item }} # This is a library for Python to connect to mysql
+        name : "{{ item }}" # This is a library for Python to connect to mysql
         executable: pip3.9
       loop:
-        - PyMySQL
-        - cryptography
+      - PyMySQL
+      - cryptography
     - name : task1 - Install mysql
       ansible.builtin.package :
         name : mysql-server
