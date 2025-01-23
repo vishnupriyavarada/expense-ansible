@@ -12,7 +12,7 @@
     - name : task1 - Install mysql
       ansible.builtin.package :
         name : mysql-server
-        state : installed
+        state : installed   
 
     - name : task2 - Start  and enable mysql service
       ansible.builtin.service :
