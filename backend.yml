@@ -12,4 +12,8 @@
       ansible.builtin.package:
         name : nodejs
         state: present  # installed will be used for dnf module. for package it is present/absent
+    
+    - name: create expense user
+      ansible.builtin.user:
+        name: expense
   
