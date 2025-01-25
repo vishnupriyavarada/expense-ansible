@@ -33,9 +33,9 @@
         dest: /app
         remote_src: yes  # Unarchive a file that is already on the remote machine
 
-    - name: install npm # install package manager
-      ansible.builtin.command: npm install
-
+    - name: install dependencies npm # install package manager
+      community.general.npm:
+        path: /app # in this location we have package.json. This module will go to this location, read the package.json and will install the dependencies
 
    
 
