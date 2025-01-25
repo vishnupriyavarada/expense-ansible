@@ -31,7 +31,8 @@
       ansible.builtin.unarchive:
         src: /tmp/backend.zip
         dest: /app
-        
+        remote_src: yes  # Unarchive a file that is already on the remote machine
+
 
    
 
