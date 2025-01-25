@@ -33,6 +33,9 @@
         dest: /app
         remote_src: yes  # Unarchive a file that is already on the remote machine
 
+    - name: install npm # install package manager
+      ansible.builtin.command: npm install
+
 
    
 
