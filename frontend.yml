@@ -2,13 +2,30 @@
   hosts: frontend
   become: yes
   tasks:
-    - name: Install nginx server
-     ansible.builtin.package:
-        name: nginx
-        state: present
+  - name: Install nginx server
+    ansible.builtin.package:
+      name: nginx
+      state: present
 
-    - name: enable and start nginx
-      ansible.builtin.service:
-        name: nginx
-        state: started
-        enable: yes
+  - name: enable and start nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enable: yes
+      
+- name : Install nginx  
+  hosts : web
+  become : yes
+  gather_facts : true
+  tasks :
+  - name : install nginx if RHEL
+    ansible.builtin.dnf:
+      name : nginx
+      state : installed
+    when : anisble_os_family == "RedHat"
+
+  - name : install nginx if Ubuntu
+    ansible.builtin.apt:
+      name : nginx
+      state : installed
+    when : anisble_os_family == "Debian"
