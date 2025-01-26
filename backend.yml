@@ -31,11 +31,14 @@
       ansible.builtin.unarchive:
         src: /tmp/backend.zip
         dest: /app
-        remote_src: yes  # Unarchive a file that is already on the remote machine
+        remote_src: yes  # Unarchive a file that is already on the remote machine.Here remote machine is backend server.
 
     - name: install app dependencies - npm # install package manager
       community.general.npm:
         path: /app # in this location we have package.json. This module will go to this location, read the package.json and will install the dependencies
 
-   
+    - name: copy backend.service to /etc/systemd/system
+      ansible.builtin.copy:
+        src: backend.service
+        dest: /etc/systemd/system
 
