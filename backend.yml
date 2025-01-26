@@ -15,7 +15,6 @@
       loop:
         - nodejs
         - mysql
-
     
     - name: create expense user
       ansible.builtin.user:
@@ -60,7 +59,7 @@
         name: all
         login_user: root
         login_password: ExpenseApp@1
-        login_host: mysql.vishnudevopsaws.online
+        login_host: 172.31.83.208 #mysql.vishnudevopsaws.online
         target: /app/schema/backend.sql
 
     - name: systemd daemon reload and restart service
