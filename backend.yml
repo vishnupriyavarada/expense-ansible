@@ -10,7 +10,7 @@
 
     - name : install nodejs
       ansible.builtin.package:
-        name : {{ item }}
+        name : "{{ item }}"
         state: present  # installed will be used for dnf module. for package it is present/absent
       loop:
         - nodejs
