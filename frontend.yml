@@ -33,3 +33,17 @@
       src: /tmp/frontend.zip
       dest: /usr/share/nginx/html
       remote_src: yes  # Unarchive a file that is already on the remote machine.Here remote machine is frontend server.
+  
+  - name: Copy expense config
+    ansible.builtin.copy:
+      src: expense.conf
+      dest: /etc/nginx/default.d/expense.conf
+
+  - name: Restart nginx server
+    ansible.builtin.service:
+      name: nginx
+      state: restarted
+
+    
+
+
