@@ -70,5 +70,10 @@
         daemon_reload: true        
         name: backend
 
+    - name: start thes service
+      ansible.builtin.service:
+        name: backend
+        state: started
+
      
 
