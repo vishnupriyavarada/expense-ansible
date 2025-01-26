@@ -59,7 +59,7 @@
         name: all
         login_user: root
         login_password: ExpenseApp@1
-        login_host: 172.31.83.208 #mysql.vishnudevopsaws.online
+        login_host: mysql.vishnudevopsaws.online #172.31.83.208
         target: /app/schema/backend.sql
 
     - name: systemd daemon reload and restart service
