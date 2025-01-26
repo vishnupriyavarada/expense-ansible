@@ -63,3 +63,12 @@
         login_host: mysql.vishnudevopsaws.online
         target: /app/schema/backend.sql
 
+    - name: systemd daemon reload
+      ansible.builtin.systemd_service:
+        name: backend
+        enabled: true
+        daemon_reload: true
+        state: restarted
+
+     
+
