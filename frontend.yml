@@ -13,3 +13,23 @@
       state: started
       enabled: yes
 
+  - name: Delete html directory
+    ansible.builtin.file:
+      path: /usr/share/nginx/html
+      state: absent
+  
+  - name: Create html directory
+    ansible.builtin.file:
+      path: /usr/share/nginx/html
+      state: directory
+
+  - name: Download frontend code
+    ansible.builtin.get_url:
+      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+      dest: /tmp/frontend.zip
+  
+  - name: Unzip frontend code
+    ansible.builtin.unarchive:
+      src: /tmp/frontend.zip
+      dest: /usr/share/nginx/html
+      remote_src: yes  # Unarchive a file that is already on the remote machine.Here remote machine is frontend server.
